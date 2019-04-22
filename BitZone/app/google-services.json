@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "751940726043",
+    "firebase_url": "https://bitzone-89910.firebaseio.com",
+    "project_id": "bitzone-89910",
+    "storage_bucket": "bitzone-89910.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751940726043:android:b084dc08ad37d452",
+        "android_client_info": {
+          "package_name": "com.example.bitzone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751940726043-g4vt1ule6qrss130p89s2jv07ro77aku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitzone",
+            "certificate_hash": "988f743986d973ddcd0909d4918e2764fe4fc31f"
+          }
+        },
+        {
+          "client_id": "751940726043-05hd171k6c2pivg34mmgg0gudkgateet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZH-umDp_i9ZmS-nbg0h-jW4RNfMFQ3Fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751940726043-05hd171k6c2pivg34mmgg0gudkgateet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
