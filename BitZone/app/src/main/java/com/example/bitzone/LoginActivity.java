@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,11 +18,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner login_spin;
@@ -30,6 +37,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     EditText email, pass;
     String emailv, passv, log_typ;
     Button log_btn, goreg;
+
+    private ProgressDialog mLoginProgress;
+    private FirebaseAuth mAuth;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference rootRef = db.getReference();
@@ -44,6 +54,12 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+
+        mAuth = FirebaseAuth.getInstance();
+
+
+        mLoginProgress = new ProgressDialog(this);
+
 
         login_spin = (Spinner) findViewById(R.id.login_spin);
 
@@ -120,6 +136,18 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             final ProgressDialog pdlg = new ProgressDialog(this);
             pdlg.setTitle("Loging In");
             pdlg.setMessage("Please Wait");
+
+            if(!TextUtils.isEmpty(emailv) || !TextUtils.isEmpty(passv)){
+
+                mLoginProgress.setTitle("Logging In");
+                mLoginProgress.setMessage("Please wait while we check your credentials.");
+                mLoginProgress.setCanceledOnTouchOutside(false);
+                mLoginProgress.show();
+
+                loginUser(emailv, passv);
+
+            }
+
             if ((emailv.matches("")) && (passv.matches(""))) {
                 //blank text field toast
                 Toast.makeText(this, "Please Enter Detail", Toast.LENGTH_SHORT).show();
@@ -137,8 +165,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                             if (emailv.equals(email) && passv.equals(password)) {
                                 pdlg.cancel();
                                 Toast.makeText(LoginActivity.this, "Login Succesfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, StaffDashboard.class);
-                                startActivity(intent);
+//                                Intent intent = new Intent(LoginActivity.this, StaffDashboard.class);
+//                                startActivity(intent);
                             }
                             else{
                                 pdlg.cancel();
@@ -216,5 +244,51 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         } else {
             Toast.makeText(this, "Please Check Internet Connection ", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void loginUser(String email, String password) {
+
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(task.isSuccessful()){
+
+                    mLoginProgress.dismiss();
+
+                    String current_user_id = mAuth.getCurrentUser().getUid();
+                    String deviceToken = FirebaseInstanceId.getInstance().getToken();
+
+                    rootRef.child("Users").child(current_user_id).child("device_token").setValue(deviceToken).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+                            Intent mainIntent = new Intent(LoginActivity.this, Main2Activity.class);
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(mainIntent);
+                            finish();
+
+
+                        }
+                    });
+
+
+
+
+                } else {
+
+                    mLoginProgress.hide();
+
+                    String task_result = task.getException().getMessage().toString();
+
+                    Toast.makeText(LoginActivity.this, "Error : " + task_result, Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+
     }
 }
