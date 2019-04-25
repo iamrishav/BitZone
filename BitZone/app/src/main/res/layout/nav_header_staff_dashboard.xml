@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/side_nav_bar"
+    android:id="@+id/dashboard_nav_bg"
+    android:paddingTop="10dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:cardCornerRadius="45dp"
+        app:cardElevation="4dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:transitionName="profile_photo_transition"
+        android:id="@+id/edit_profile_user_icon_container">
+
+        <ImageView
+            android:id="@+id/user_profile_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tick_mark"
+            android:padding="32dp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome,\nUser!"
+        android:textSize="10pt"
+        android:textColor="#f9f9f9"
+        android:id="@+id/username_welcome_text"
+        android:layout_alignBottom="@+id/edit_profile_user_icon_container"
+        android:layout_alignStart="@+id/username_text"
+        android:maxLines="2"
+        android:ellipsize="end"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/username_bg"
+        android:paddingTop="2dp"
+        android:transitionName="profile_username_transition"
+        android:paddingBottom="2dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:text="HIYA!"
+        android:textAllCaps="true"
+        android:textColor="#5C86BF"
+        android:textSize="7.5pt"
+        android:textStyle="bold"
+        android:id="@+id/username_text"
+        android:layout_alignTop="@+id/edit_profile_user_icon_container"
+        android:layout_toEndOf="@+id/edit_profile_user_icon_container"
+        android:layout_marginStart="15dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/verified"
+        android:textSize="7.5pt"
+        android:alpha="0.97"
+        android:id="@+id/username_badge"
+        android:clickable="false"
+        android:visibility="visible"
+        android:layout_marginStart="5dp"
+        android:layout_alignBottom="@+id/username_text"
+        android:layout_alignTop="@+id/edit_profile_user_icon_container"
+        android:layout_toEndOf="@+id/username_text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="LOG OUT"
+        android:textStyle="bold"
+        android:textSize="8pt"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/logout_btn"
+        android:textColor="#5C86BF"
+        android:id="@+id/logout_btn"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/edit_profile_user_icon_container"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentEnd="true"
+        android:onClick="logout"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="SETTINGS"
+        android:textStyle="bold"
+        android:textSize="8pt"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/edit_profile_btn"
+        android:textColor="#5C86BF"
+        android:id="@+id/edit_profile_btn"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/edit_profile_user_icon_container"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/logout_btn"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:drawableLeft="@drawable/setting_blue"/>
+
+</RelativeLayout>

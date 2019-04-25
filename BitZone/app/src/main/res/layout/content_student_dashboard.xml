@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_student_dashboard">
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/nav_header_height"
+        android:layout_marginEnd="@dimen/nav_header_height"
+        android:indeterminate="true"
+        android:id="@+id/dashboard_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cvAttendance"
+        android:layout_width="157dp"
+        android:layout_height="156dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="116dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="attendance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/report" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="View Reports"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    </android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/no_new_notifications_container"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No new notifications."
+            android:textSize="10pt"
+            android:layout_centerInParent="true"
+            android:paddingTop="30dp"
+
+            android:id="@+id/dashboard_no_new_notifications"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bell"
+            android:layout_centerInParent="true"
+            android:paddingBottom="30dp"
+            android:id="@+id/dashboard_bell_icon"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bell_off"
+            android:layout_centerInParent="true"
+            android:paddingBottom="30dp"
+            android:id="@+id/dashboard_bell_off_icon"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#CC999999"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textSize="12dp"
+        android:layout_below="@+id/no_new_notifications_container"
+        android:text="Long-press anywhere to\nview all notifications"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/dashboard_content"
+        android:background="?attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:alpha="0.95"
+            android:visibility="gone"
+            android:id="@+id/fab_shade">
+
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/logoGreen"
+            app:rippleColor="#f9f9f9"
+            android:backgroundTint="@color/logoGreen"
+            android:onClick="fab_onclick"
+            android:src="@drawable/add"
+            app:fabSize="normal"
+            android:elevation="0dp"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/attendance"
+            android:background="#fff"
+            android:backgroundTint="#fff"
+            app:rippleColor="@color/logoGreen"
+            app:fabSize="mini"
+            app:borderWidth="0dp"
+            android:clickable="true"
+            android:id="@+id/mark_attendance_fab"
+            android:layout_above="@+id/add_results_fab"
+            android:layout_alignStart="@+id/add_results_fab"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:onClick="mark_attendance_fab_onclick"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/results"
+            android:background="#fff"
+            android:backgroundTint="#fff"
+            app:rippleColor="@color/logoGreen"
+            app:fabSize="mini"
+            app:borderWidth="0dp"
+            android:clickable="true"
+            android:id="@+id/add_results_fab"
+            android:layout_above="@+id/new_announcement_fab"
+            android:layout_alignStart="@+id/new_announcement_fab"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:onClick="add_results_fab_onclick"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/announcement"
+            android:background="#fff"
+            android:backgroundTint="#fff"
+            app:rippleColor="@color/logoGreen"
+            app:fabSize="mini"
+            app:borderWidth="0dp"
+            android:clickable="true"
+            android:id="@+id/new_announcement_fab"
+            android:layout_above="@+id/fab"
+            android:layout_alignEnd="@+id/fab"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:onClick="new_announcement_fab_onclick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mark Attendance"
+            android:textColor="#f9f9f9"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:id="@+id/mark_attendance_fab_label"
+            android:layout_alignTop="@+id/mark_attendance_fab"
+            android:layout_toStartOf="@+id/mark_attendance_fab"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:onClick="mark_attendance_fab_onclick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Add Results"
+            android:textColor="#f9f9f9"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:id="@+id/add_results_fab_label"
+            android:layout_below="@+id/mark_attendance_fab"
+            android:layout_toStartOf="@+id/add_results_fab"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:onClick="add_results_fab_onclick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Announcement"
+            android:textColor="#f9f9f9"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:id="@+id/new_announcement_fab_label"
+            android:layout_below="@+id/add_results_fab"
+            android:layout_toStartOf="@+id/new_announcement_fab"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:onClick="new_announcement_fab_onclick"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

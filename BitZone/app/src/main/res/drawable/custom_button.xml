@@ -14,7 +14,7 @@
     </item>
     <item>
         <shape>
-            <solid android:color="#FF44DA97" />
+            <solid android:color="#3498DB" />
             <stroke android:width="0dp" android:color="#ffffff" />
             <corners android:radius="4dp" />
             <padding

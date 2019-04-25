@@ -3,5 +3,13 @@
     <color name="colorPrimary">#673bb7</color>
     <color name="colorPrimaryDark">#512da7</color>
     <color name="colorAccent">#ff5521</color>
+
     <color name="darkColor">#222222</color>
+    <color name="logoGreen">#673bb7</color>
+
+
+    <color name="darkLess">#484848</color>
+    <color name="buttonBack">#0A3D62</color>
+    <color name="buttonBackDark">#192A56</color>
+
 </resources>

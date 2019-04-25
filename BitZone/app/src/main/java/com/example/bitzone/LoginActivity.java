@@ -165,8 +165,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                             if (emailv.equals(email) && passv.equals(password)) {
                                 pdlg.cancel();
                                 Toast.makeText(LoginActivity.this, "Login Succesfully", Toast.LENGTH_SHORT).show();
-//                                Intent intent = new Intent(LoginActivity.this, StaffDashboard.class);
-//                                startActivity(intent);
+                                Intent intent = new Intent(LoginActivity.this, StaffDashboard.class);
+                                startActivity(intent);
                             }
                             else{
                                 pdlg.cancel();
@@ -264,10 +264,10 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                         @Override
                         public void onSuccess(Void aVoid) {
 
-                            Intent mainIntent = new Intent(LoginActivity.this, Main2Activity.class);
-                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(mainIntent);
-                            finish();
+//                            Intent mainIntent = new Intent(LoginActivity.this, Main2Activity.class);
+//                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                            startActivity(mainIntent);
+//                            finish();
 
 
                         }

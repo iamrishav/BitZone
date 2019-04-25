@@ -1,5 +1,7 @@
 package com.example.bitzone;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -26,6 +28,12 @@ public class Main2Activity extends AppCompatActivity {
     private DatabaseReference mUserRef;
 
     private TabLayout mTabLayout;
+    public AlertDialog.Builder ex;
+
+    @Override
+    public void onBackPressed() {
+        ex.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,19 @@ public class Main2Activity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Lapit Chat");
+        getSupportActionBar().setTitle("BitZone");
+
+        ex = new AlertDialog.Builder(this).setTitle("Exit ?").setMessage("Do You Want To Exit").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
 
         if (mAuth.getCurrentUser() != null) {
 
@@ -93,9 +113,10 @@ public class Main2Activity extends AppCompatActivity {
 
     private void sendToStart() {
 
-        Intent startIntent = new Intent(Main2Activity.this, MainActivity.class);
-        startActivity(startIntent);
-        finish();
+//        Intent startIntent = new Intent(Main2Activity.this, StaffDashboard.class);
+//        startActivity(startIntent);
+//        finish();
+        ex.show();
 
     }
 

@@ -11,10 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".AttendanceMain"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".StudentDashboard"
+            android:label="@string/title_activity_student_dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".StaffDashboard"
+            android:label="@string/title_activity_staff_dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +32,10 @@
         <activity android:name=".StartActivity" />
         <activity
             android:name=".RegisterActivity"
-            android:parentActivityName=".StartActivity"/>
+            android:parentActivityName=".StartActivity" />
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".StartActivity"/>
+            android:parentActivityName=".StartActivity" />
         <activity android:name=".Forgetpassword" />
         <activity
             android:name=".StatusActivity"
@@ -45,11 +53,21 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatActivity"
-            android:parentActivityName=".Main2Activity"></activity>
-        <activity android:name=".StudentDashboard" />
-        <activity android:name=".StaffDashboard" />
+        <activity
+            android:name=".ChatActivity"
+            android:parentActivityName=".Main2Activity" />
         <activity android:name=".SettingsActivity" />
+        <activity
+            android:name=".AdditionActivity"
+            android:label="@string/add"
+            android:parentActivityName=".AttendanceMain"
+            android:theme="@style/AppTheme" >
+        </activity>
+
+        <activity android:name=".SummaryActivity"
+            android:parentActivityName=".AttendanceMain" >
+        </activity>
+
     </application>
 
 </manifest>

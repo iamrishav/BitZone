@@ -10,5 +10,29 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="default_status">Hi there, I\'m using Lapit Chat App</string>
+    <string name="default_status">Hi there, I\'m using Bitzone Chat App</string>
+    <string name="title_activity_staff_dashboard">StaffDashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">LogOut</string>
+    <string name="title_activity_student_dashboard">StudentDashboard</string>
+
+
+
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="addLecture">Add Lecture</string>
+    <string name="addKlass">Add Class</string>
+    <string name="numofstudents">Students</string>
+    <string name="klassName">Class Name</string>
+    <string name="add">Add</string>
+    <string name="add_new_klass">Add New Class</string>
+    <string name="addNewLecture">Add New Lecture</string>
+    <string name="selectClass">Select Class</string>
+    <string name="delete">Delete</string>
+    <string name="addAttendance">addAttendance</string>
+    <string name="selectLecture">Select Lecture</string>
+    <string name="modifyAttendance">Modify Attendance</string>
 </resources>
