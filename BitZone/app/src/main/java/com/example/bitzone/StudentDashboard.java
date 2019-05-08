@@ -119,6 +119,8 @@ public class StudentDashboard extends AppCompatActivity
             startActivity(mainIntent);
 
         } else if (id == R.id.nav_student_notifications) {
+            Intent intent = new Intent(StudentDashboard.this,StudentCircular.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_student_assignment) {
             Intent intent = new Intent(StudentDashboard.this,StudentLink.class);
