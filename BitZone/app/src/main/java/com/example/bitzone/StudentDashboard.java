@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -21,6 +22,7 @@ public class StudentDashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ImageView imageView;
+    RelativeLayout dashboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,14 @@ public class StudentDashboard extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         imageView = findViewById(R.id.imageView);
+        dashboard = findViewById(R.id.dashboard);
+        dashboard.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(StudentDashboard.this,StudentCircular.class);
+                startActivity(intent);
+            return true;}
+        });
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

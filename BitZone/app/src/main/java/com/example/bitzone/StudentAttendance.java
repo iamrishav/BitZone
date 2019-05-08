@@ -24,7 +24,7 @@ public class StudentAttendance extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StudentAttendance.this,StudentClasses.class);
-                intent.putExtra("class",klass.getText().toString());
+
                 intent.putExtra("roll",rollNumber.getText().toString());
                 startActivity(intent);
             }

@@ -21,6 +21,7 @@ public class StaffDashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ConstraintLayout constraintLayout;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,11 @@ public class StaffDashboard extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                email = getIntent().getStringExtra("email");
+
+                Intent intent = new Intent(StaffDashboard.this,Circular.class);
+                intent.putExtra("email",email);
+                startActivity(intent);
             }
         });
 
@@ -100,6 +104,12 @@ public class StaffDashboard extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_notifications) {
+
+            email = getIntent().getStringExtra("email");
+
+            Intent intent = new Intent(StaffDashboard.this,Circular.class);
+            intent.putExtra("email",email);
+            startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_attendance) {
             Intent intent = new Intent(StaffDashboard.this,AttendanceMain.class);

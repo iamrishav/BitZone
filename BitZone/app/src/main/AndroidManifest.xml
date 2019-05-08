@@ -16,6 +16,9 @@
         <activity android:name=".StudentAttendanceSummary" />
         <activity android:name=".StudentClasses" />
         <activity android:name=".StudentAttendance" />
+        <activity android:name=".StudentCircular"></activity>
+        <activity android:name=".NewCircular" />
+        <activity android:name=".Circular" />
         <activity
             android:name=".AttendanceMain"
             android:theme="@style/AppTheme.NoActionBar" />

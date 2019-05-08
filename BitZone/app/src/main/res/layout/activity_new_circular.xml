@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewCircular">
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="25dp"
+     android:orientation="vertical"
+     android:gravity="center">
+
+
+     <TextView
+
+         android:textColor="@color/colorPrimary"
+
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="A D D  N E W  C I R C U L A R"
+         android:textSize="28dp"/>
+
+<TextView
+    android:layout_marginTop="50dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Notice Heading"
+    android:textSize="24dp"
+    android:layout_marginLeft="10dp"/>
+     <EditText
+         android:layout_marginTop="10dp"
+         android:id="@+id/edthead"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:hint="Heading"
+         android:layout_marginLeft="10dp"
+         android:textSize="24dp"
+         android:layout_marginRight="20dp"
+         android:textAlignment="center"/>
+
+     <TextView
+         android:layout_marginTop="50dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Type Message"
+         android:textSize="24dp"
+         android:layout_marginLeft="10dp"/>
+     <EditText
+         android:layout_marginTop="10dp"
+         android:id="@+id/edtmessage"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:hint="N O T I C E"
+         android:inputType="textMultiLine"
+         android:layout_marginLeft="10dp"
+         android:textSize="24dp"
+         android:layout_marginRight="20dp"
+         android:textAlignment="center"/>
+
+     <LinearLayout
+         android:layout_marginTop="80dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:weightSum="2">
+
+         <Button
+             android:layout_marginLeft="10dp"
+             android:textColor="@android:color/white"
+             android:background="@color/colorPrimary"
+             android:id="@+id/select_img"
+             android:layout_weight="1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Select Image"
+             android:textSize="18dp"/>
+
+         <Button
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:textColor="@android:color/white"
+             android:background="@color/colorPrimary"
+
+             android:id="@+id/upload_img"
+             android:layout_weight="1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Upload Image"
+             android:textSize="18dp"/>
+     </LinearLayout>
+
+
+
+
+     <Button
+         android:textColor="@android:color/white"
+         android:background="@color/colorPrimary"
+
+         android:id="@+id/btnupload"
+         android:layout_marginTop="100dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Upload Circular"
+         android:textSize="18dp"/>
+ </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
