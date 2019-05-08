@@ -12,6 +12,7 @@ public class SummaryActivity extends SingleFragmentActivity {
     public static final String SELECTION_CODE="Khalu ka hai";
     public static final int DAY_SUMMARY=15;
     public static final int MONTH_SUMMARY=25;
+    public static final int student=30;
 
 
 
@@ -31,6 +32,7 @@ public class SummaryActivity extends SingleFragmentActivity {
 
             case DAY_SUMMARY: return new AttendanceSummaryFragment();
             case MONTH_SUMMARY: return new LectureSummaryFragment();
+            case student:return new StudentLectureSummaryFragment();
             default: return null;
         }
 

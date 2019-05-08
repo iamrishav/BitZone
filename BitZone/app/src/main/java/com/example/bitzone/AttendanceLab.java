@@ -103,6 +103,20 @@ public class AttendanceLab {
         return null;
     }
 
+    public Attendance getAttendanceByClass(String klass)
+    {
+        for (Attendance attendance: mAttendances) {
+            if (klass.equals(attendance.getAttendanceName()))
+            {
+                return attendance;
+            }
+        }
+        return null;
+    }
+
+
+
+
     public float getPresentyPercentage(List<Attendance> attendances, int pos) {
 
         float total=attendances.size();

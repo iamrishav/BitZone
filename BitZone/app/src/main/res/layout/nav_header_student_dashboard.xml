@@ -74,7 +74,7 @@
         android:layout_toEndOf="@+id/username_text" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="40dp"
         android:text="LOG OUT"
         android:textStyle="bold"
@@ -90,23 +90,5 @@
         android:layout_alignParentEnd="true"
         android:onClick="logout"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="SETTINGS"
-        android:textStyle="bold"
-        android:textSize="8pt"
-        android:paddingRight="15dp"
-        android:paddingLeft="15dp"
-        android:background="@drawable/edit_profile_btn"
-        android:textColor="#5C86BF"
-        android:id="@+id/edit_profile_btn"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/edit_profile_user_icon_container"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/logout_btn"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
-        android:drawableLeft="@drawable/setting_blue"/>
 
 </RelativeLayout>

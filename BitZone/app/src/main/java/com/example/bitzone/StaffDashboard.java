@@ -113,6 +113,9 @@ public class StaffDashboard extends AppCompatActivity
 
         } else if (id == R.id.nav_assignments) {
 
+            Intent intent = new Intent(StaffDashboard.this,StaffAddLink.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -122,5 +125,12 @@ public class StaffDashboard extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public  void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(StaffDashboard.this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

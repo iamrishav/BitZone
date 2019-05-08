@@ -16,9 +16,7 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by sylveryte on 2/3/16.
- */
+
 public class LectureSummaryFragment extends Fragment {
 
     private List<Attendance> mAttendances;
