@@ -23,5 +23,14 @@
         android:layout_margin="10dp"
         />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/linkRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:padding="4dp">
+
+    </android.support.v7.widget.RecyclerView>
+
 
 </LinearLayout>

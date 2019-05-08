@@ -18,7 +18,6 @@ public class StudentAttendance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_attendance);
 
-        klass = findViewById(R.id.student_class);
         rollNumber = findViewById(R.id.student_roll);
         submit = findViewById(R.id.submit_details);
         submit.setOnClickListener(new View.OnClickListener() {
